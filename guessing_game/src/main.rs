@@ -5,7 +5,7 @@ use std::io;
 fn main() {
     println!("Guess the number!");
 
-    let secret_number = rand::thread_rng().gen_range(1..11); // it can be (1..=11) more readable
+    let secret_number = rand::thread_rng().gen_range(1..11); // it can be (1..=10) more readable
 
     println!("The secret rand is: {}", secret_number);
 
