@@ -5,7 +5,6 @@
 //what statements and expressions are and how their differences affect the bodies of functions.
 //We’ve actually already used statements and expressions. Statements are instructions that perform
 //some action and do not return a value. Expressions evaluate to a resulting value.
-
 fn main() {
     let _x = 5;
 
@@ -19,4 +18,15 @@ fn main() {
     };
 
     println!("Y value: {:?}", y);
+    println!("Return function nine plus one value: {}", plus_one(nine()));
+}
+
+//the nine function has no parameters and defines the type of the return value, but the body of the
+//function is a lonely 9 with no semicolon because it’s an expression whose value we want to return.
+fn nine() -> i32 {
+    9
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
