@@ -13,4 +13,25 @@ fn main() {
     };
     println!("The result is {}", result);
     println!("Counter is??? {}", counter);
+
+    //while condition...
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+        number -= 1;
+    }
+    println!("LIFTOFF!!!");
+
+    //for condition...
+    let a = [10, 20, 30];
+
+    for element in a.iter() {
+        println!("the value is {}!", element);
+    }
+
+    //reverse generated numbers
+    for n in (1..=4).rev() {
+        println!("number: {}", n);
+    }
 }
