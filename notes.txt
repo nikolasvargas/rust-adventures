@@ -1,0 +1,98 @@
+programming notes
+-----------------
+1. All variables in rust are immutable;
+2. `let mut` declaration turns variable mutable;
+3. `match` pattern returns io::Result (Ok, Err enum results...) (https://doc.rust-lang.org/std/io/type.Result.html)
+4. Keep in mind that Rust is a statically typed language, which means that it must know the types of all variables at compile time
+5. every element of an array must have the same type. Arrays in Rust are different from arrays is some other languages because arrays in Rust have a fixed length, like tuples.
+6. Rust code uses snake case as the conventional style for function and variable names.
+7. In Rust, statements are instructions that perform some action and do not return a value. Expressions evaluate to a resulting value.
+   Function bodies are made up of a series of statements, optionally ending in an expression.
+
+   Assigning a value to a variable is a statement, it doesn't return anything.
+   ---------------------------------------------------------------------------
+
+   let num = 5;
+
+   ---------------------------------------------------------------------------
+
+   Expressions can be part of a statement.
+
+   While the line above is a statement, it contains an expression (something that evaluates to a value).  In this case, the value itself, the integer 5.
+
+   ^WARNING: variable assignment being a statement is the reason you can't assign a value to the result of another assignment.
+   You can in many other languages, not in Rust.
+
+   The following snippet would try to assign "nothing" to the `also_num` variable, that's an error!
+   ------------------------------------------------------------------------------------------------
+
+    let also_num = (let num = 5); // error!
+
+   ------------------------------------------------------------------------------------------------
+
+   Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement, which will then not return a value.
+   If a function ends in an expression, it returns the value of that expression.
+
+   A function definition is a statement, it doesn't result in a value. Calling a function is an expression, that
+   expression evaluates to whatever that function call returns.
+   ------------------------------------------------------------
+
+   let num = add(4, 1);
+
+   fn add(x: i32, y: i32) -> i32 {
+     x + 1
+   }
+
+   ------------------------------------------------------------
+
+   The lines where the `add` function is defined, are a statement, those lines don't evaluate to anything.
+   Calling `add(4, 1)` is an expression, it evaluates to a value (the integer 5). Inside the function, the last line of
+   the function body is an expression `x + y`. That ending expression evaluates to a value and the function returns it.
+
+   ^WARNING: if that line ended in a semicolon instead (ie. x + y;), it would turn the expression into a statement.
+   That would not return a value, causing the function to not return a value.
+
+8. You may explicitly return a value from a function by using the `return` keyword followed by an expression.
+   By convention, that line is terminated with a semicolon. This is an `add` function that explicitly ends execution
+   and returns a value is equivalent to the `add` above that ended with as expression.
+   -----------------------------------------------------------------------------------
+
+   fn add(x: i32, y: i32) -> i32 {
+     return x + y;
+   }
+
+   -----------------------------------------------------------------------------------
+
+9. `If` condition is an expression, so... it returns a value.
+   ----------------------------------------------------------
+
+   fn main() {
+     let num = 5;
+     let mut name = String::new();
+     if num > 3 {
+       name = "Tom";
+     } else {
+       name = "Jerry";
+     }
+     println!("{}", name);
+   }
+
+   ----------------------------------------------------------
+
+   The value of `if` evaluate to is the value of the codelbock it executed.
+   That means we can rewrite our example above.
+   --------------------------------------------
+
+   fn main() {
+     let num = 5;
+     let name = if num > 3 {"Tom"} else {"Jerry"};
+     println!("{}", name);
+   }
+
+   --------------------------------------------
+
+   ^WARNING: Rust allow do this only if statements are of the same type. It must be the same type.
+
+
+
+
