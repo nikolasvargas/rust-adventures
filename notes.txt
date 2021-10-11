@@ -139,3 +139,12 @@ programming notes
 
     This works just fine; When you see a call to `clone`, you know that some arbitrary code is being executed and that
     code may be expensive. It's a visual indicator that something different is going on.
+
+14. Rust has a special annotation called the Copy trait that we can place on types like integers that are stored on the stack
+    Here are some types that implement `Copy`:
+     - All the integer types, such as u32;
+     - The Boolean type, bool, with values true and false;
+     - All the floating point types, such as f64;
+     - The character type, char.
+     - Tuples, if they only contain types that also implement `copy`.
+       For example (i32, i32) implements Copy, but (i32, String) does not.
