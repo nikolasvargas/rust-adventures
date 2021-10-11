@@ -93,6 +93,8 @@ programming notes
 
    ^WARNING: Rust allow do this only if statements are of the same type. It must be the same type.
 
+10. The way that Rust handle memory and allocation its really interesting.
+    see: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#memory-and-allocation
 
-
-
+    Rust calls a special function called `drop` at the function closing curly bracket, then automagically
+    returns the memory allocated from the statement;
