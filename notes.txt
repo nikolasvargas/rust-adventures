@@ -116,9 +116,26 @@ programming notes
     ----------------------------------------
 
     let s1 = String::from("foo");
-    let s2 = s2;
+    let s2 = s1;
 
     ----------------------------------------
 
     It is very similar, but to see what is happening to String under the covers its a bit more complex.
     see: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#ways-variables-and-data-interact-move
+
+12. Rust will never automatically create "deep" copies of your data. Therefore, any `automatic` copying can be assumed
+    inexpensive in terms of runtime performance.
+
+13. If we do want to deeply copy the heap data of the String, not just the stack data, we can use a common method
+    called `clone`.
+    ---------------
+
+    let s1 = String::from("foo");
+    let s2 = s1.clone();
+
+    println!("s1 = {}, s2 = {}", s1, s2);
+
+    ---------------
+
+    This works just fine; When you see a call to `clone`, you know that some arbitrary code is being executed and that
+    code may be expensive. It's a visual indicator that something different is going on.
