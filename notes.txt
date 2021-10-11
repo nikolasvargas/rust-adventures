@@ -96,5 +96,5 @@ programming notes
 10. The way that Rust handle memory and allocation its really interesting.
     see: https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html#memory-and-allocation
 
-    Rust calls a special function called `drop` at the function closing curly bracket, then automagically
+    Rust calls a special function called `drop` on closing curly bracket of the function, then automagically
     returns the memory allocated from the statement;
