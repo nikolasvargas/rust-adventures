@@ -25,7 +25,7 @@ fn main() {
 
     println!("{}", s2);
     // This looks very similar to the previous code, so we might assume that the way it works would
-    // be the same. that is, the secod line would make a copy of the value in s1 and bind it to s2.
+    // be the same. That is, the second line would make a copy of the value in s1 and bind it to s2.
     // But this isn't quite what happens.
 
     /*
@@ -48,7 +48,7 @@ fn main() {
     * the contents of the string, a length, and a capacity. This group of data is stored on the
     * stack. On the right is the memory on the heap that holds the contents.
     *
-    * The length is how much memory, in bytes the contents of the String is currently using. THe
+    * The length is how much memory, in bytes the contents of the String is currently using. The
     * capacity is the total amount of memory, in bytes, that the String has received from the
     * allocator. The difference between length and capacity matters, but not in this context.
     *
@@ -120,7 +120,7 @@ fn main() {
     *
     *
     * To ensure memory safety, there's one more detail to what happens in this situation in Rust.
-    * Instead of trying to copy the allocated memory, Rust considers s1 to nolonger be valid and,
+    * Instead of trying to copy the allocated memory, Rust considers s1 to no longer be valid and,
     * therefore, Rust doesn't need to free anything when s1 goes out of scope. Check out what
     * happens when you try to use s1 after s2 is created; it won't work:
     * ------------------------------------------------------------------
